@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GrowUp – Personality Development for Classes 6–9</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef3fb;--ink:#1f2a44;--mut:#5b6987;--card:#fff;--line:#d5deef;--teal:#168a99;--gold:#f2b632;--coral:#d9534f;--ok:#1b9a5f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.6 Nunito,"Segoe UI",system-ui,sans-serif}
+h1,h2,h3{font-family:"Baloo 2","Trebuchet MS",sans-serif;line-height:1.2;margin:0 0 .5rem}
+header{background:var(--ink);color:#fff;padding:1rem 1.25rem 0}
+.wrap{max-width:860px;margin:0 auto}
+.brand{display:flex;align-items:baseline;gap:.75rem;flex-wrap:wrap}
+.brand h1{font-size:2rem;color:var(--gold);margin:0}
+.brand span{color:#c9d3ea}
+nav{display:flex;gap:.25rem;margin-top:.75rem}
+nav button{background:none;border:0;color:#c9d3ea;font:700 1rem "Baloo 2",sans-serif;padding:.6rem 1.1rem;border-radius:12px 12px 0 0;cursor:pointer}
+nav button[aria-selected=true]{background:var(--bg);color:var(--ink)}
+main{max-width:860px;margin:0 auto;padding:1.25rem}
+button:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+.pills{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.25rem}
+.pill{background:var(--card);border:2px solid var(--line);border-radius:999px;padding:.35rem 1rem;font:700 1rem "Baloo 2",sans-serif;color:var(--ink);cursor:pointer}
+.pill small{color:var(--mut);font:600 .85rem Nunito,sans-serif;margin-left:.35rem}
+.pill[aria-pressed=true]{background:var(--teal);border-color:var(--teal);color:#fff}
+.pill[aria-pressed=true] small{color:#d9f3f6}
+.mod{display:flex;align-items:center;gap:1rem;width:100%;text-align:left;background:var(--card);border:1px solid var(--line);border-left:8px solid var(--line);border-radius:12px;padding:.9rem 1rem;margin-bottom:.75rem;cursor:pointer;font:inherit;color:inherit}
+.mod.done{border-left-color:var(--ok)}
+.mod b{display:block;font:700 1.1rem "Baloo 2",sans-serif}
+.mod .sk{color:var(--mut);font-size:.9rem}
+.mod .st{margin-left:auto;font-weight:700;color:var(--mut);white-space:nowrap}
+.mod.done .st{color:var(--ok)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.25rem;margin-bottom:1rem}
+.lesson{border-left:6px solid var(--gold);background:#fff9e6}
+.q{margin:1.25rem 0}
+.q p{font-weight:700;margin:0 0 .5rem}
+.opt{display:block;width:100%;text-align:left;background:#fff;border:2px solid var(--line);border-radius:10px;padding:.6rem .9rem;margin-bottom:.4rem;font:inherit;color:inherit;cursor:pointer}
+.opt:hover:not(:disabled){border-color:var(--teal)}
+.opt:disabled{cursor:default}
+.opt.right{border-color:var(--ok);background:#e6f6ee}
+.opt.wrong{border-color:var(--coral);background:#fdeceb}
+.btn{background:var(--teal);color:#fff;border:0;border-radius:10px;padding:.6rem 1.2rem;font:700 1rem "Baloo 2",sans-serif;cursor:pointer}
+.btn.ghost{background:none;color:var(--teal);border:2px solid var(--teal)}
+.btn.warn{background:none;color:var(--coral);border:2px solid var(--coral)}
+.row{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1rem}
+.bar{height:12px;background:var(--line);border-radius:99px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--teal);border-radius:99px}
+.bar i.low{background:var(--coral)}
+.bar i.hi{background:var(--ok)}
+.line{display:grid;grid-template-columns:150px 1fr 56px;gap:.75rem;align-items:center;margin:.55rem 0}
+.line span:last-child{text-align:right;font-weight:700}
+.big{font:700 3rem/1 "Baloo 2",sans-serif;color:var(--teal)}
+ul.imp{padding-left:1.1rem;margin:.25rem 0}
+.mut{color:var(--mut)}
+@media(max-width:520px){.line{grid-template-columns:100px 1fr 48px}.mod .st{display:none}}
+@media(prefers-reduced-motion:no-preference){.bar i{transition:width .5s}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <div class="brand"><h1>GrowUp</h1><span>Personality development for Classes 6–9</span></div>
+  <nav role="tablist" id="nav"></nav>
+</div></header>
+<main id="app"></main>
+
+<script>
+const C={
+6:[
+{s:"Communication",t:"Be a good listener",l:"Listening is more than staying quiet. Look at the speaker, wait until they finish, then reply to what they actually said. Good listeners make friends faster.",q:[["Your friend is telling you about their day. What shows you are listening?",["Looking at them and nodding","Checking your bag","Talking about your own day"],0],["When should you reply?",["Halfway through their sentence","After they finish","Never"],1]]},
+{s:"Confidence",t:"Speak up in class",l:"Everyone feels nervous before speaking. Take a slow breath, speak clearly, and remember that mistakes help you learn. Start small: answer one question every day.",q:[["You know the answer but feel shy. What helps most?",["Stay silent","Take a deep breath and try","Wait for someone else"],1],["A wrong answer in class is…",["A chance to learn","A reason to never speak again","Something to hide"],0]]},
+{s:"Respect",t:"Good manners every day",l:"Saying please, thank you and sorry costs nothing but means a lot. Respect also means treating every person kindly, whether they are a teacher, a classmate or a school helper.",q:[["Someone holds the door for you. You say…",["Nothing","Thank you","Hurry up"],1],["Which shows respect to a school helper?",["Greeting them politely","Ignoring them","Leaving litter behind"],0]]},
+{s:"Time Management",t:"Plan your day",l:"A simple routine saves time and worry. Write down homework and tasks, do the hardest one first, and keep a fixed time for play and sleep.",q:[["What is a good first step in planning your day?",["Write a to-do list","Start playing","Wait until evening"],0],["Which task should you do first?",["The hardest or most important","The easiest only","None of them"],0]]}
+],
+7:[
+{s:"Teamwork",t:"Work well in a group",l:"Great teams share the work, listen to every idea and celebrate wins together. If a teammate struggles, help them instead of blaming them.",q:[["In a group project, everyone should…",["Share the work","Leave it to one person","Work alone"],0],["A teammate has an idea you disagree with. You…",["Laugh at it","Listen, then share your view politely","Ignore them"],1]]},
+{s:"Emotional Control",t:"Handle anger calmly",l:"Anger is normal, but how you act on it matters. Pause, breathe slowly, count to ten, and then speak. Talking calmly solves more problems than shouting.",q:[["You feel very angry. What is the best first step?",["Shout","Pause and breathe","Throw something"],1],["After calming down, you should…",["Explain how you feel in a calm voice","Stop talking to everyone","Take revenge"],0]]},
+{s:"Goal Setting",t:"Make a clear goal",l:"A good goal is specific, measurable and has a deadline. “Read 10 pages every day this month” is better than “read more”. Break big goals into small steps.",q:[["Which is the better goal?",["Do better","Score 80% in maths by December","Be good at everything"],1],["Big goals are easier when you…",["Break them into small steps","Ignore them","Do everything on the last day"],0]]},
+{s:"Empathy",t:"Understand others’ feelings",l:"Empathy means imagining how another person feels. Notice faces and words, ask “Are you okay?” and offer kindness. It builds strong friendships.",q:[["A classmate looks sad alone at lunch. You…",["Sit with them and ask if they are okay","Laugh","Pretend not to see"],0],["Empathy means…",["Feeling superior","Understanding how someone feels","Giving advice always"],1]]}
+],
+8:[
+{s:"Decision Making",t:"Say no to peer pressure",l:"Friends can push you to do things you know are wrong. Stop, think about the result, and say no firmly. Real friends respect your choice.",q:[["Friends ask you to skip class. The best answer is…",["Go along to fit in","Say no politely and stay firm","Hide from them"],1],["Before deciding, you should…",["Think about the results","Follow the crowd","Flip a coin"],0]]},
+{s:"Leadership",t:"Lead by example",l:"A leader is not the loudest person but the one who sets a good example. Be on time, be fair, take responsibility and encourage others.",q:[["A good leader…",["Takes credit for all work","Is fair and takes responsibility","Orders everyone around"],1],["The best way to lead is to…",["Show the behaviour you expect","Only give orders","Avoid the team"],0]]},
+{s:"Resilience",t:"Bounce back from failure",l:"Everyone fails sometimes. Ask what went wrong, what you can change, and try again. Failure is feedback, not the end of the story.",q:[["You failed a test. What is the most helpful step?",["Give up the subject","Find your mistakes and practise","Blame the teacher"],1],["Failure is best seen as…",["Proof you are bad","Feedback to improve","Something to hide"],1]]},
+{s:"Digital Responsibility",t:"Think before you post",l:"What you post online can stay forever. Never share private details, be kind in comments, and tell a trusted adult if someone bullies you online.",q:[["Before posting a photo of a friend, you should…",["Ask their permission","Post it fast","Add a funny insult"],0],["Someone is bullying you online. You should…",["Reply angrily","Tell a trusted adult","Delete everything silently"],1]]}
+],
+9:[
+{s:"Conflict Resolution",t:"Solve disagreements",l:"Disagreements are normal. Listen to the other side, use “I feel…” statements instead of blame, and look for a solution that works for both people.",q:[["Which is an “I” statement?",["You always ruin things","I feel upset when plans change suddenly","Everyone hates you"],1],["The goal of solving a conflict is…",["Winning","A fair solution for both","Making the other person quit"],1]]},
+{s:"Self-awareness",t:"Know your strengths",l:"Knowing what you are good at and what you need to improve helps you choose subjects, hobbies and careers. Ask trusted people for honest feedback and reflect weekly.",q:[["Self-awareness helps you to…",["Understand your strengths and weaknesses","Compare yourself with others","Avoid feedback"],0],["Honest feedback from a teacher is…",["An insult","A chance to grow","Always wrong"],1]]},
+{s:"Time Management",t:"Balance study and rest",l:"Board-level studies need a plan. Split the syllabus into weekly targets, study in short focused blocks of 25–40 minutes, and protect sleep and exercise.",q:[["A smart way to study for long hours is…",["Short focused blocks with breaks","One 8-hour block without breaks","Study only at night before exams"],0],["Sleep during exam time is…",["A waste","Essential for memory","Optional"],1]]},
+{s:"Communication",t:"Speak with purpose",l:"Strong speakers know their message, organise points in order, and use a clear voice and eye contact. Practise in front of a mirror or a friend before presenting.",q:[["A good presentation starts with…",["A clear main message","Reading every line","Speaking very fast"],0],["To reduce nervousness, you should…",["Practise beforehand","Avoid speaking","Memorise nothing"],0]]}
+]};
+const KEY="growup-progress-v1";
+let P={},cls=6,tab="learn",cur=null,ans=[];
+try{P=JSON.parse(localStorage.getItem(KEY))||{}}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(P))}catch(e){}};
+const k=(c,i)=>c+"-"+i;
+const pct=c=>Math.round(C[c].filter((_,i)=>P[k(c,i)]).length/C[c].length*100);
+const bar=(v,cl="")=>`<div class="bar" role="img" aria-label="${v}%"><i class="${cl}" style="width:${v}%"></i></div>`;
+
+function nav(){
+  document.getElementById("nav").innerHTML=[["learn","Courses"],["report","My Progress"]]
+    .map(([id,n])=>`<button role="tab" aria-selected="${tab===id}" onclick="go('${id}')">${n}</button>`).join("");
+}
+function go(t){tab=t;cur=null;render()}
+function pick(c){cls=c;cur=null;render()}
+function openMod(i){cur=i;ans=[];render()}
+function choose(q,o){
+  if(ans[q]!=null)return;
+  ans[q]=o;
+  const m=C[cls][cur];
+  if(ans.filter(a=>a!=null).length===m.q.length){
+    P[k(cls,cur)]={score:m.q.filter((x,i)=>ans[i]===x[2]).length,total:m.q.length};
+    save();
+  }
+  render();
+}
+
+function learn(){
+  let h=`<div class="pills">`+[6,7,8,9].map(c=>`<button class="pill" aria-pressed="${c===cls}" onclick="pick(${c})">Class ${c}<small>${pct(c)}%</small></button>`).join("")+`</div>`;
+  if(cur===null){
+    h+=`<h2>Class ${cls} course</h2><p class="mut">Finish all four modules to complete the course.</p>`;
+    h+=C[cls].map((m,i)=>{const r=P[k(cls,i)];
+      return `<button class="mod ${r?"done":""}" onclick="openMod(${i})"><span><b>${m.t}</b><span class="sk">${m.s}</span></span><span class="st">${r?`Done · ${r.score}/${r.total}`:"Start"}</span></button>`}).join("");
+    return h;
+  }
+  const m=C[cls][cur],done=ans.filter(a=>a!=null).length===m.q.length;
+  h+=`<button class="btn ghost" onclick="cur=null;render()">Back to modules</button><div class="card" style="margin-top:1rem"><h2>${m.t}</h2><div class="card lesson" style="margin:0"><b>Lesson · ${m.s}</b><p style="margin:.4rem 0 0">${m.l}</p></div>`;
+  m.q.forEach((x,qi)=>{
+    h+=`<div class="q"><p>${qi+1}. ${x[0]}</p>`+x[1].map((o,oi)=>{
+      let c="";if(ans[qi]!=null){if(oi===x[2])c="right";else if(oi===ans[qi])c="wrong"}
+      return `<button class="opt ${c}" ${ans[qi]!=null?"disabled":""} onclick="choose(${qi},${oi})">${o}</button>`}).join("")+`</div>`;
+  });
+  if(done){
+    const r=P[k(cls,cur)],last=cur===C[cls].length-1;
+    h+=`<div class="card" style="background:#e6f6ee"><h3>You scored ${r.score} out of ${r.total}</h3><p style="margin:0">${r.score===r.total?"Excellent work. This skill is looking strong.":"Good effort. Read the lesson again and retake the quiz to improve."}</p><div class="row"><button class="btn ghost" onclick="openMod(${cur})">Retake quiz</button>${last?"":`<button class="btn" onclick="openMod(${cur+1})">Next module</button>`}<button class="btn ghost" onclick="go('report')">View progress</button></div></div>`;
+  }
+  return h+`</div>`;
+}
+
+function report(){
+  const all=[];let sk={};
+  [6,7,8,9].forEach(c=>C[c].forEach((m,i)=>{const r=P[k(c,i)];all.push(r);
+    if(r){sk[m.s]=sk[m.s]||{s:0,t:0,mods:[]};sk[m.s].s+=r.score;sk[m.s].t+=r.total;sk[m.s].mods.push(`Class ${c}: ${m.t}`)}}));
+  const total=all.length,done=all.filter(Boolean).length,overall=Math.round(done/total*100);
+  let h=`<div class="card"><div class="big">${overall}%</div><p class="mut" style="margin:.25rem 0 0">of all modules completed (${done} of ${total})</p></div>`;
+  h+=`<div class="card"><h3>Completion by class</h3>`+[6,7,8,9].map(c=>`<div class="line"><span>Class ${c}</span>${bar(pct(c),pct(c)===100?"hi":"")}<span>${pct(c)}%</span></div>`).join("")+`</div>`;
+  const list=Object.entries(sk).map(([n,v])=>[n,Math.round(v.s/v.t*100),v.mods]).sort((a,b)=>a[1]-b[1]);
+  h+=`<div class="card"><h3>Skill scores</h3>`;
+  h+=list.length?list.map(([n,v])=>`<div class="line"><span>${n}</span>${bar(v,v<70?"low":v>=85?"hi":"")}<span>${v}%</span></div>`).join(""):`<p class="mut">Complete a quiz to see your skill scores.</p>`;
+  h+=`</div>`;
+  const weak=list.filter(x=>x[1]<70),strong=list.filter(x=>x[1]>=85);
+  h+=`<div class="card"><h3>Areas of improvement</h3>`;
+  if(!list.length)h+=`<p class="mut">Your areas of improvement will show here after your first quiz.</p>`;
+  else if(!weak.length)h+=`<p>No weak areas right now. Keep practising and try the next class.</p>`;
+  else h+=`<ul class="imp">`+weak.map(([n,v,m])=>`<li><b>${n}</b> (${v}%). Revisit: ${m.join("; ")}.</li>`).join("")+`</ul>`;
+  if(strong.length)h+=`<p style="margin-top:1rem"><b>Strengths:</b> ${strong.map(x=>x[0]).join(", ")}.</p>`;
+  const next=[6,7,8,9].find(c=>pct(c)<100);
+  if(next)h+=`<div class="row"><button class="btn" onclick="cls=${next};go('learn')">Continue Class ${next}</button></div>`;
+  h+=`</div><button class="btn warn" onclick="if(confirm('Erase all progress?')){P={};save();render()}">Reset progress</button>`;
+  return h;
+}
+
+function render(){nav();document.getElementById("app").innerHTML=tab==="learn"?learn():report();window.scrollTo(0,0)}
+render();
+</script>
+</body>
+</html>
+Create Personality development app
